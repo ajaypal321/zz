@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\ajay\AppData\Local\Temp\testng-eclipse--392677967\testng-customsuite.xml</span>
+                    <span>C:\Users\ajay\AppData\Local\Temp\testng-eclipse--2039675451\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -129,11 +129,8 @@
                   <a name="Signup">
                   </a> <!-- Signup -->
                   <span class="method-name">Signup</span>
-                  <div class="stack-trace">java.lang.NullPointerException
-	at java.base/java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:149)
-	at java.base/java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:111)
-	at com.utilities.utility.initializeDriver(utility.java:30)
-	at com.base.BaseClass.startup(BaseClass.java:16)
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;java.util.Properties.getProperty(String)&quot; because &quot;this.prop&quot; is null
+	at com.base.BaseClass.startup(BaseClass.java:17)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -167,7 +164,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\ajay\AppData\Local\Temp\testng-eclipse--392677967\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\ajay\AppData\Local\Temp\testng-eclipse--2039675451\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -176,7 +173,11 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.testcase.SignupTest&quot;/&gt;
+      &lt;class name=&quot;com.testcase.SignupTest&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;Signup&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- com.testcase.SignupTest --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;

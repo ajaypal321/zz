@@ -25,10 +25,15 @@ public class utility {
 	public Properties prop;
 
 	public WebDriver initializeDriver() throws IOException {
-		prop=new Properties();//?
-		String propath= System.getProperty("use.dir"+"\\Spicejet\\src\\main\\java\\com\\resource\\DataProperties");
-		FileInputStream fis= new FileInputStream(propath);
-		prop.load(fis);
+		//prop=new Properties();//?
+//		String propath= System.getProperty("use.dir"+"\\Spicejet\\src\\main\\java\\com\\resource\\DataProperties");
+//		FileInputStream fis= new FileInputStream(propath);
+//		prop.load(fis);
+		String projectPath = System.getProperty("user.dir");
+		File file = new File(projectPath + "/DataProperties");
+		FileInputStream fileInput = new FileInputStream(file);
+		Properties prop = new Properties();
+		prop.load(fileInput);
 
 		String browsername= "chrome";
 		if(browsername.equals("chrome")) {
