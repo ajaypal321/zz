@@ -12,33 +12,40 @@ public class LoginPage {
 		PageFactory.initElements(driver,this);
 	}
 	//@FindBy(xpath="(//div[contains(text(),'Login')])[1]")
-	@FindBy(xpath="//div[@class='css-1dbjc4n r-1awozwy r-1loqt21 r-18u37iz r-1otgn73']")
-	WebElement loginbtn;
+	@FindBy(xpath="(//div[.='Login'])[1]")
+	WebElement loginkey;
 	
-	@FindBy(xpath="//div[@class='css-1dbjc4n r-18u37iz r-1w6e6rj r-p1pxzi']")
-	WebElement emailbtn;
+	//@FindBy(xpath="(//div[text()='Email'])[1]")
+	@FindBy(xpath="(//div[.='Email'])[1]")
+	WebElement emailbutton;
 	
 	@FindBy(xpath="//input[@type='email']")
-	WebElement emailinput;
+	WebElement enteremailid;
 	
-	@FindBy(xpath="//input[@data-testid='password-input-box-cta']")
-	WebElement password;
+	@FindBy(xpath="//input[@type='password']")
+	WebElement enterpassword;
 	@FindBy(xpath="//div[@data-testid='login-cta']")
-	WebElement loginsubmit;
+	WebElement loginbutton;
 	
-	public void LoginBtn() {
-		loginbtn.click();
+	public void Login() {
+		loginkey.click();
 	}
-	public void EmailBtn() {
-		emailbtn.click();
+	public void EmailButton() {
+		emailbutton.click();
 	}
-	public void EmailInput(String einput) {
-		emailinput.sendKeys(einput);
+	public void EmailId(String Emailid) {
+		enteremailid.sendKeys(Emailid);
 	}
-	public void Password(String pwd) {
-		password.sendKeys(pwd);
+	public void InvalidEmailId(String InvalidEmail ) {
+		enteremailid.sendKeys(InvalidEmail);
 	}
-	public void LoginSubmit() {
-		loginsubmit.click();
+	public void Password(String Password) {
+		enterpassword.sendKeys(Password);
+	}
+	public void invalidpassword(String InvalidPassword) {
+		enterpassword.sendKeys(InvalidPassword);
+	}
+	public void LoginButton() {
+		loginbutton.click();
 	}
 }

@@ -1,5 +1,6 @@
 package com.page.object;
 
+import java.util.Iterator;
 import java.util.Set;
 
 import org.openqa.selenium.WebDriver;
@@ -18,12 +19,17 @@ public class SignupPage extends utility {
 		this.driver=driver;
 		PageFactory.initElements(driver,this);
 	}
-	//Locate an object
+	//Locate the object
 
-	@FindBy(xpath ="(//a[@to='https://spiceclub.spicejet.com/signup'])[1]")
-	WebElement signup1;
+	//@FindBy(linkText="Signup")
+	
+	@FindBy(xpath="//div[text()='Signup']")
+	WebElement signup;
 
+	//div[@class='col-sm-4 mt-2 px-sm-4']//select[contains(@class,'form-control form-select')]
 	@FindBy(xpath="(//select[contains(@class,'form-control form-select')])[1]")
+	//@FindBy(xpath="option[.='Mr']") // not working
+	//@FindBy(xpath="//div[@class='col-sm-4 mt-2 px-sm-4']//select[contains(@class,'form-control form-select')]")
 	WebElement title;
 
 	@FindBy(xpath="//input[@id='first_name']")
@@ -56,14 +62,17 @@ public class SignupPage extends utility {
 
 	//method
 	// perform action on it
-	public void ClickSignup() {
-		signup1.click();	
+	
+	public void Signup() {
+		signup.click();	
 	}
 	
-	public void Selecttitle() {
+	
+	
+	public void SelectTitle() {
 		title.click();
-		Select tit =new Select(title);
-	tit.selectByValue("Mr");
+//		Select tit =new Select(title);
+//	tit.selectByValue("Mr");
 }
 	
 	public void FirstName(String Firstname) {
@@ -73,11 +82,11 @@ public class SignupPage extends utility {
 	public void LastName(String lastname) {
 		Lastname.sendKeys(lastname);//comes from test method
 	}
-	public void enterCountry(String country1) {
+	public void enterCountry(String Country) {
 		//Select count =new Select(country1);
 		//count.selectByValue("IN");
 		
-	country.sendKeys(country1);
+	country.sendKeys(Country);
 	}	
 	public void Dateofbirth(String DOB) {
 		dateofbirth.sendKeys(DOB);

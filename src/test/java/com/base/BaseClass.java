@@ -11,13 +11,13 @@ import com.utilities.utility;
 
 public class BaseClass extends utility {
 
-	@BeforeTest
-	public void startup() throws IOException {
-		driver=initializeDriver();
+	@BeforeMethod
+	public void startup() throws IOException  {
+		driver=intializeDriver();
 		driver.get(prop.getProperty("url"));// Dynamic url
 	}
 	
-	@AfterTest
+	@AfterMethod
 	public void close() {
 		driver.close();
 	}

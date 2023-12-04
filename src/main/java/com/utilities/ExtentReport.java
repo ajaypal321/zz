@@ -1,10 +1,8 @@
 package com.utilities;
 
 import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.reporter.ExtentReporter;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-
-public class ExternalReport {
+public class ExtentReport {
 	// method to create for extentreport
 		public static ExtentReports getExtentReport() {
 		// define a path where extentreport should be generated
@@ -17,11 +15,7 @@ public class ExternalReport {
 		//create an object of extentreport obj
 		ExtentReports extentReport= new ExtentReports();
 		// attach that report
-	
 		extentReport.attachReporter(reporter);
 		return extentReport;
-		
-		
 	}
-
 }

@@ -7,30 +7,41 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import com.base.BaseClass;
 import com.page.object.LoginPage;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class LoginTest {
-	private WebDriver driver;
-	private LoginPage objlogin= new LoginPage(driver);
-	@ BeforeTest
-	public void beforetest() {
-		System.setProperty("Webdriver-http-factory","jdk-http-client");
-		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-		driver.get("https://www.spicejet.com/");
-			
+public class LoginTest extends BaseClass{
+
+	@Test(priority=1)
+	public void LoginwithValidCredentials() {
+		LoginPage login= new LoginPage(driver);	
+		login.Login();
+		login.EmailButton();
+		login.EmailId(prop.getProperty("Email"));
+		login.Password(prop.getProperty("Password"));
+		login.LoginButton();
+		
 	}
-	@Test
-	public void Logintest() {
-		objlogin= new LoginPage(driver);
-		objlogin.LoginBtn();
-		objlogin.EmailBtn();
-		objlogin.EmailInput("ramji@gmail.com");
-		objlogin.Password("Ramji@123");
-		objlogin.LoginSubmit();
+	@Test(priority=2)
+	public void LoginwithInvalidCredentials() {
+		LoginPage login= new LoginPage(driver);
+		login.Login();
+		login.EmailButton();
+		login.EmailId(prop.getProperty("Email"));
+		login.invalidpassword(prop.getProperty("InvalidPassword"));
+		login.LoginButton();
+		
+	}
+	@Test(priority=3)
+	public void LoginwithInvalidEmail() {
+		LoginPage login= new LoginPage(driver);
+		login.Login();
+		login.EmailButton();
+		login.EmailId(prop.getProperty("InvalidEmail"));
+		login.invalidpassword(prop.getProperty("Password"));
+		login.LoginButton();
+		
 	}
 }

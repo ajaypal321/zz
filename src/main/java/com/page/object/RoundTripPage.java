@@ -11,19 +11,22 @@ public class RoundTripPage {
 		this.driver= driver;
 		PageFactory.initElements(driver,this);
 	}
-	@FindBy(xpath="//div[@data-testid='round-trip-radio-button']")
+	@FindBy(xpath="//div[text()='round trip']")
+	//@FindBy(xpath="//div[@data-testid='round-trip-radio-button']")
 	WebElement rndbtn;
-	@FindBy(xpath="//div[@data-testid='to-testID-origin']//input[@type='text']")
-	WebElement rfrom;
-	@FindBy(xpath="//div[@data-testid='to-testID-destination']//input[@type='text']")
-	WebElement rreturn ;
-	@FindBy(xpath="//div[@data-testid='departure-date-dropdown-label-test-id']")
-	WebElement depdate;
+	//@FindBy(xpath="(//div[.='From'])[1]")
+		@FindBy(xpath="(//div[@class='r-1862ga2 r-1loqt21 r-1enofrn r-tceitz r-u8s1d css-76zvg2'])[1]")
+		WebElement boardingfrom;
 
-	@FindBy(xpath="//div[contains(text(),'Return Date')]")
-	WebElement rdate;
-	@FindBy(xpath="(//div[@data-testid='undefined-calendar-day-19'])[4]")
-	WebElement ddate;
+		//@FindBy(xpath="(//div[.='To'])[1]")
+		@FindBy(xpath="(//input[@class='css-1cwyjr8 r-homxoj r-ubezar r-10paoce r-13qz1uu'])[2]")
+		WebElement destination;
+		@FindBy(xpath="//div[.='Departure Date']")
+		WebElement departuredate;
+		@FindBy(xpath="//div[text()='10'])[12]")
+		WebElement returndate;
+	
+	
 	@FindBy(xpath="//div[@data-testid='home-page-travellers']")
 	WebElement passengers ;
 	@FindBy(xpath="//div[@data-testid='Adult-testID-plus-one-cta']")
@@ -49,17 +52,26 @@ public class RoundTripPage {
 	public void Roundbtn() {
 		 rndbtn.click();
 	}
-	public void RFrom(String place) {
-		rfrom.click();
-		rfrom.sendKeys(place);
+	public void ROnboarding(String boarding) {
+		boardingfrom.click();
+		boardingfrom.sendKeys(boarding);
+
 	}
-	public void RReturn(String destination) {
-		rreturn.click();
-		rreturn.sendKeys(destination);
+	public void RDestination(String Destination) {
+		destination.click();
+		destination.clear();
+		destination.sendKeys(Destination);
 	}
+	
 	public void DepDate() {
+		departuredate.click();
 		
 	}
+	public void ReturnDate() {
+		returndate.click();
+		
+	}
+	
 	public void Passengers() {
 		passengers.click();
 	}
@@ -69,6 +81,9 @@ public class RoundTripPage {
 	}
 	public void Infant() {
 		infant.click();
+		infant.click();
+		infant.click();
+		
 		
 	}
 	public void Choosecurrency() {

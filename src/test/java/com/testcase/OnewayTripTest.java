@@ -8,28 +8,26 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.page.object.OnewayTripPage;
-
+import com.page.object.SelectFlightPage;
+import com.base.BaseClass;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class OnewayTripTest {
-	private WebDriver driver;
-	private OnewayTripPage obj= new OnewayTripPage(driver);
-	@ BeforeTest
-	public void beforetest() {
-		System.setProperty("Webdriver-http-factory","jdk-http-client");
-		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-		//driver.get("https://www.bestbuy.com/");
-		driver.get("https://www.spicejet.com/");
-}
+public class OnewayTripTest extends BaseClass{
 	@Test
-	public void TripTest() {
-		obj= new OnewayTripPage(driver);
-		obj.OWTbtn();
-		obj.From("Mumbai");
-		obj.To("Delhi");
-		obj.DepatureDate();
+	public void getSearchFlight() throws InterruptedException {
+		OnewayTripPage oneway = new OnewayTripPage(driver);
+		oneway.OWTbtn();
+		oneway.Onboarding(prop.getProperty("From"));
+		Thread.sleep(2000);
+		oneway.Destination(prop.getProperty("To"));
+		Thread.sleep(2000);
+		oneway.DepatureDate();
+		Thread.sleep(2000);
+		oneway.SearchFlight();	
+		Thread.sleep(3000);
+//		oneway.ContBtn();
+//		Thread.sleep(3000);
 	}
+
+	
 }
