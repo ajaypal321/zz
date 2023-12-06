@@ -73,8 +73,9 @@ public class SignupPage extends utility {
 	
 	public void SelectTitle() {
 		title.click();
-//		Select tit =new Select(title);
-//	tit.selectByValue("Mr");
+		Select tit =new Select(title);
+		tit.selectByVisibleText("Mr");
+	//tit.selectByValue("Mr");
 }
 	
 	public void FirstName(String Firstname) {
