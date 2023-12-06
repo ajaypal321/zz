@@ -65,7 +65,9 @@ public class SignupPage extends utility {
 	
 	public void Signup() {
 		signup.click();	
+		SwitchWindow();
 	}
+	
 	
 	
 	

@@ -68,16 +68,16 @@ public class utility {
 		FileUtils.copyFile(srcScreenshotfile, new File(screenShotFilepath));
 		return screenShotFilepath;
 	}
-	public static void SwitchWindow() {
-		String parentwindow=driver.getWindowHandle();// find prent window
+	public  void SwitchWindow() {
+		String parentwindow=driver.getWindowHandle();// find parent window
 		Set<String>windowhandles=driver.getWindowHandles();// find the children windows
 		windowhandles.size();// get number of window open
 		
 		// switching to windows
 		for(String childwindow:windowhandles) {
-			if(childwindow.contentEquals(parentwindow)) {
+			if(childwindow!=parentwindow) {
 				driver.switchTo().window(childwindow);
-				break;
+				
 			}
 		}
 	}

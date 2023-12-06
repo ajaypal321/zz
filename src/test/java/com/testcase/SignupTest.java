@@ -13,7 +13,7 @@ public class SignupTest extends BaseClass{
 		// create an object 
 		SignupPage  signup= new SignupPage(driver);
 		signup.Signup();
- 		SwitchWindow();
+ 		
 //signup.SelectTitle();
 		Thread.sleep(3000);
 		signup.FirstName(prop.getProperty("FirstName"));
